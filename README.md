@@ -46,25 +46,25 @@ at "v2", then they would have been a part of the same subtree.
 Here's what everything means:
 
 
-adj[][]: It is an N*N matrix denoting the adjacency matrix of the given graph.
+**adj[][]:** It is an N*N matrix denoting the adjacency matrix of the given graph.
 
-disc[][]: It is an array of N elements which stores the discovery time of every vertex. It is initialized by 0.
+**disc[][]:** It is an array of N elements which stores the discovery time of every vertex. It is initialized by 0.
 
-low[]: It is an array of N elements which stores, for every vertex "v", the discovery time of the earliest discovered vertex to which "v" or any of the vertices in the subtree rooted at "v" is having a back edge. It is initialized by INFINITY.
-
-
-visited[]: It is an array of size N which denotes whether a vertex is visited or not during the DFS. It is initialized by false.
+**low[]:** It is an array of N elements which stores, for every vertex "v", the discovery time of the earliest discovered vertex to which "v" or any of the vertices in the subtree rooted at "v" is having a back edge. It is initialized by INFINITY.
 
 
-parent[]: It is an array of size N which stores the parent of each vertex. It is initialized by NIL.
-
- AP[]: It is an array of size N. AP[i]=true, if the ith vertex is an articulation point.
+**visited[]:** It is an array of size N which denotes whether a vertex is visited or not during the DFS. It is initialized by false.
 
 
- vertex: It is an array of size . = true, if ith vertex is an articulation point.
+**parent[]:** It is an array of size N which stores the parent of each vertex. It is initialized by NIL.
+
+ **AP[]:** It is an array of size N. AP[i]=true, if the ith vertex is an articulation point.
 
 
- time: Current value of discovery time.
+ **vertex:** It is an array of size . = true, if ith vertex is an articulation point.
+
+
+ **time:** Current value of discovery time.
 
 
 
@@ -72,3 +72,13 @@ The above program (which resolves the issue of finding the Articulation points i
 
 
  It keeps a counter called "child" to count the number of children of a vertex. Then the algorithm iterates over every vertex in the graph and see if it is connected to "u", if it finds a vertex "v" that is connected to "u", but has already been visited, then it updates the value low[u] to minimum of low[u] and discovery time of "v"i.e. disc[v], .But if the vertex "v" is not yet visited, then it sets the parent[v] to "u" and calls the DFS again with "vertex=v". So the same things that just happened with "u" will happen for "v" also. When that DFS call will return, low[v] will have the discovery time of the earliest discovered vertex that can be reached from any vertex in the subtree rooted at "v". So set low[u] to minimum of low[v] and itself. And finally if "u" is not the root, it checks whether low[u] is greater than or equal to disc[u] , and if so, it marks AP[u] as true. And if "u" is root it checks whether it has more than one child or not, and if so, it marks AP[u] as true.
+ 
+ # Built With
+  - [**Clion**](https://www.jetbrains.com/clion/)
+
+# Authors
+- **Abderraouf GATTAL** 
+
+# License
+This project is licensed under the MIT License
+
